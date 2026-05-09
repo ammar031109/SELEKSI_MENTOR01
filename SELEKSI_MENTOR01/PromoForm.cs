@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SELEKSI_MENTOR01
 {
@@ -44,28 +45,34 @@ namespace SELEKSI_MENTOR01
 
         }
 
-        void enableField(bool x)
+        void enableField(bool e)
         {
-            tbProductID.Enabled = !x;
-            cbPromo.Enabled = !x;
-            tbBuy.Enabled = !x;
-            tbReward.Enabled = !x;
-            dtStart.Enabled = !x;
-            dtEnd.Enabled = !x;
+            tbProductID.Enabled = !e;
+            cbPromo.Enabled = e;
+            tbBuy.Enabled = !e;
+            tbReward.Enabled = !e;
+            dtStart.Enabled = !e;
+            dtEnd.Enabled = !e;
         }
 
-        void enableButton(bool x)
+        void enableButton(bool e)
         {
-            btnInsert.Enabled = x;
-            btnSave.Enabled = !x;
-            btnUpdate.Enabled = x;
-            btnCancel.Enabled = !x;
+            btnInsert.Enabled = e;
+            btnSave.Enabled = !e;
+            btnUpdate.Enabled = e;
+            btnCancel.Enabled = !e;
         }
 
-        void enableFieldAndButton(bool x)
+        void enableFieldAndButton(bool e)
         {
-            enableField(!x);
-            enableButton(!x);
+            enableField(!e);
+            enableButton(!e);
+        }
+
+        private void enableButtonAndField(bool e)
+        {
+            enableButton(e);
+            enableField(e);
         }
 
 
@@ -93,8 +100,15 @@ namespace SELEKSI_MENTOR01
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-           
+            id = "";
+            enableButtonAndField(false);
+
+            tbProductID.Clear();
+            tbName.Clear();
+            tbBuy.Clear();
+            tbReward.Clear();
         }
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
