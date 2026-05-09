@@ -13,6 +13,7 @@ namespace SELEKSI_MENTOR01
     public partial class TransactionForm : Form
     {
         DataBaseDataContext db = new DataBaseDataContext();
+        string id = "";
         
         public TransactionForm()
         {
@@ -77,6 +78,13 @@ namespace SELEKSI_MENTOR01
         private void btnRemove_Click(object sender, EventArgs e)
         { 
         
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            var f = new MainForm();
+            f.Show();
+            this.Hide();
         }
     }
 }

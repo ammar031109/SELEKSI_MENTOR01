@@ -48,6 +48,7 @@
             this.lblTransactionID = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -241,11 +242,24 @@
             this.lblTotal.TabIndex = 60;
             this.lblTotal.Text = "-";
             // 
+            // btnBack
+            // 
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBack.Location = new System.Drawing.Point(94, 55);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(76, 30);
+            this.btnBack.TabIndex = 61;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 659);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblTransactionID);
@@ -298,5 +312,6 @@
         private System.Windows.Forms.Label lblTransactionID;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnBack;
     }
 }

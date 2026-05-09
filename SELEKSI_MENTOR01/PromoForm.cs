@@ -21,10 +21,54 @@ namespace SELEKSI_MENTOR01
 
         private void PromoForm_Load(object sender, EventArgs e)
         {
-          
+            tbProductID.Enabled = false;
+            showData();
+            enableFieldAndButton(false);
         }
 
-      
+        void showData()
+        {
+            var query = db.Promos.Where(x => x.ProdukId.Contains(tbProductID.Text) || x.Type.Contains(cbPromo.Text)).ToList()
+            .Select(x => new
+            {
+                x.PromoId,
+                x.ProdukId,
+                x.Type,
+                x.BuyQty,
+                x.Reward,
+                x.StartDate,
+                x.EndDate
+            }).ToList();
+
+            dgvData.DataSource = query;
+
+        }
+
+        void enableField(bool x)
+        {
+            tbProductID.Enabled = !x;
+            cbPromo.Enabled = !x;
+            tbBuy.Enabled = !x;
+            tbReward.Enabled = !x;
+            dtStart.Enabled = !x;
+            dtEnd.Enabled = !x;
+        }
+
+        void enableButton(bool x)
+        {
+            btnInsert.Enabled = x;
+            btnSave.Enabled = !x;
+            btnUpdate.Enabled = x;
+            btnCancel.Enabled = !x;
+        }
+
+        void enableFieldAndButton(bool x)
+        {
+            enableField(!x);
+            enableButton(!x);
+        }
+
+
 
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
